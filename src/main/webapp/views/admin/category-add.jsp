@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng Nhập Hệ Thống</title>
+    <title>Thêm Danh Mục</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -25,30 +24,30 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .login-container {
+        .form-container {
             background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .login-header {
+        .form-header {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .login-header h3 {
+        .form-header h3 {
             color: #333;
             font-weight: 700;
             margin-bottom: 10px;
             font-size: 28px;
         }
 
-        .login-header p {
+        .form-header p {
             color: #666;
             font-size: 14px;
         }
@@ -92,43 +91,7 @@
             font-weight: 400;
         }
 
-        .checkbox-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .form-check {
-            display: flex;
-            align-items: center;
-        }
-
-        .form-check-input {
-            margin-right: 8px;
-            transform: scale(1.2);
-        }
-
-        .form-check-label {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-        .forgot-password {
-            color: #667eea;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .forgot-password:hover {
-            color: #764ba2;
-            text-decoration: none;
-        }
-
-        .btn-login {
+        .btn-submit {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
             padding: 15px;
@@ -139,40 +102,39 @@
             width: 100%;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-bottom: 15px;
         }
 
-        .btn-login:hover {
+        .btn-submit:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
             color: white;
         }
 
-        .btn-login:active {
+        .btn-submit:active {
             transform: translateY(0);
         }
 
-        .register-link {
-            text-align: center;
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 1px solid #eee;
-        }
-
-        .register-link p {
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .register-link a {
-            color: #667eea;
-            text-decoration: none;
+        .btn-cancel {
+            background: transparent;
+            border: 2px solid #6c757d;
+            padding: 12px 25px;
+            border-radius: 12px;
+            color: #6c757d;
             font-weight: 600;
-            transition: color 0.3s ease;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
 
-        .register-link a:hover {
-            color: #764ba2;
+        .btn-cancel:hover {
+            background: #6c757d;
+            color: white;
             text-decoration: none;
+            transform: translateY(-2px);
         }
 
         .alert {
@@ -181,11 +143,6 @@
             padding: 15px 20px;
             margin-bottom: 25px;
             font-weight: 500;
-        }
-
-        .alert-success {
-            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
-            color: white;
         }
 
         .alert-danger {
@@ -197,8 +154,40 @@
             margin-right: 8px;
         }
 
+        .icon-preview {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-preview.active {
+            background: #e3f2fd;
+            border-color: #667eea;
+        }
+
+        .preview-icon {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .preview-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
         /* Animation */
-        .login-container {
+        .form-container {
             animation: slideUp 0.6s ease-out;
         }
 
@@ -215,50 +204,41 @@
 
         /* Responsive */
         @media (max-width: 576px) {
-            .login-container {
+            .form-container {
                 margin: 20px;
                 padding: 30px 25px;
             }
             
-            .login-header h3 {
+            .form-header h3 {
                 font-size: 24px;
             }
-        }
-
-        /* Icon styling */
-        .fa {
-            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-header">
-            <h3><i class="fas fa-user-shield"></i> Đăng Nhập</h3>
-            <p>Chào mừng bạn quay trở lại</p>
+    <div class="form-container">
+        <div class="form-header">
+            <h3><i class="fas fa-plus-circle"></i> Thêm Danh Mục</h3>
+            <p>Tạo danh mục mới cho hệ thống</p>
         </div>
 
-        <c:if test="${param.logout == 'success'}">
-            <div class="alert alert-success">
-                <i class="fas fa-check-circle"></i> Đăng xuất thành công!
-            </div>
-        </c:if>
-
-        <c:if test="${not empty alert}">
+        <c:if test="${not empty error}">
             <div class="alert alert-danger">
-                <i class="fas fa-exclamation-triangle"></i> ${alert}
+                <i class="fas fa-exclamation-triangle"></i> ${error}
             </div>
         </c:if>
 
-        <form action="login" method="post">
+        <form action="${pageContext.request.contextPath}/admin/category/add" method="post">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-tag"></i>
                         </span>
                     </div>
-                    <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required>
+                    <input type="text" name="catename" class="form-control" 
+                           placeholder="Nhập tên danh mục" required 
+                           value="${param.catename}">
                 </div>
             </div>
 
@@ -266,34 +246,59 @@
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fas fa-lock"></i>
+                            <i class="fas fa-icons"></i>
                         </span>
                     </div>
-                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required>
+                    <input type="text" name="icons" class="form-control" 
+                           placeholder="Nhập class icon (VD: fas fa-home)" 
+                           value="${param.icons}"
+                           id="iconInput">
+                </div>
+                <div class="help-text">
+                    <i class="fas fa-info-circle"></i> 
+                    Sử dụng Font Awesome classes. Ví dụ: fas fa-home, fas fa-laptop, fas fa-car
                 </div>
             </div>
 
-            <div class="checkbox-container">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe" name="remember">
-                    <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+            <div class="icon-preview" id="iconPreview">
+                <div class="preview-icon" id="previewIcon">
+                    <i class="fas fa-eye"></i>
                 </div>
-                <a href="${pageContext.request.contextPath}/forgot-password" class="forgot-password">
-                    Quên mật khẩu?
-                </a>
+                <div class="preview-text">Xem trước icon</div>
             </div>
 
-            <button type="submit" class="btn btn-login">
-                <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-save"></i> Tạo Danh Mục
             </button>
-        </form>
-
-        <div class="register-link">
-            <p>Chưa có tài khoản?</p>
-            <a href="${pageContext.request.contextPath}/register">
-                <i class="fas fa-user-plus"></i> Tạo tài khoản mới
+            
+            <a href="${pageContext.request.contextPath}/admin/categories" class="btn-cancel">
+                <i class="fas fa-times"></i> Hủy Bỏ
             </a>
-        </div>
+        </form>
     </div>
+
+    <script>
+        // Icon preview functionality
+        const iconInput = document.getElementById('iconInput');
+        const previewIcon = document.getElementById('previewIcon');
+        const iconPreview = document.getElementById('iconPreview');
+
+        iconInput.addEventListener('input', function() {
+            const iconClass = this.value.trim();
+            if (iconClass) {
+                previewIcon.innerHTML = `<i class="${iconClass}"></i>`;
+                iconPreview.classList.add('active');
+            } else {
+                previewIcon.innerHTML = '<i class="fas fa-eye"></i>';
+                iconPreview.classList.remove('active');
+            }
+        });
+
+        // Initialize preview if there's a value
+        if (iconInput.value) {
+            previewIcon.innerHTML = `<i class="${iconInput.value}"></i>`;
+            iconPreview.classList.add('active');
+        }
+    </script>
 </body>
 </html>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>WEEK2</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
   <servlet>
     <description></description>
     <display-name>LoginController</display-name>
@@ -10,15 +19,6 @@
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
-  <display-name>WEEK2</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
   <servlet>
     <description></description>
     <display-name>HomeController</display-name>
@@ -38,5 +38,75 @@
   <servlet-mapping>
     <servlet-name>RegisterController</servlet-name>
     <url-pattern>/RegisterController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutController</display-name>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>vn.iostar.controller.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/LogoutController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Category</display-name>
+    <servlet-name>Category</servlet-name>
+    <servlet-class>vn.iostar.model.Category</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Category</servlet-name>
+    <url-pattern>/Category</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryDao</display-name>
+    <servlet-name>CategoryDao</servlet-name>
+    <servlet-class>vn.iostar.dao.CategoryDao</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryDao</servlet-name>
+    <url-pattern>/CategoryDao</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryDaoImpl</display-name>
+    <servlet-name>CategoryDaoImpl</servlet-name>
+    <servlet-class>vn.iostar.dao.CategoryDaoImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryDaoImpl</servlet-name>
+    <url-pattern>/CategoryDaoImpl</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryService</display-name>
+    <servlet-name>CategoryService</servlet-name>
+    <servlet-class>vn.iostar.service.CategoryService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryService</servlet-name>
+    <url-pattern>/CategoryService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryServiceImpl</display-name>
+    <servlet-name>CategoryServiceImpl</servlet-name>
+    <servlet-class>vn.iostar.service.CategoryServiceImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryServiceImpl</servlet-name>
+    <url-pattern>/CategoryServiceImpl</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryController</display-name>
+    <servlet-name>CategoryController</servlet-name>
+    <servlet-class>vn.iostar.controller.CategoryController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryController</servlet-name>
+    <url-pattern>/CategoryController</url-pattern>
   </servlet-mapping>
 </web-app>

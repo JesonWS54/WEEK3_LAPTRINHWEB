@@ -6,66 +6,43 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Trang Đăng Ký</title>
+    <title>Đăng Ký Tài Khoản</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <style>
-        body {
-            background-color: #f5f5f5;
-        }
-        .login-container {
-            width: 500px;
-            margin: 100px auto;
-            padding: 25px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-group .fa {
-            color: #999;
-        }
-        .form-control {
-            border-left: none;
-        }
-    </style>
 </head>
 <body>
-    <div class="login-container">
-        <h3 class="text-center mb-2">Tạo Tài Khoản Mới</h3>
+    <div class="main-container">
+        <h3 class="text-center mb-4">Đăng Ký Tài Khoản</h3>
 
         <c:if test="${not empty alert}">
             <div class="alert alert-danger">
-                ${alert}
+                <i class="fa fa-exclamation-triangle"></i> ${alert}
             </div>
         </c:if>
-
+        
         <form action="register" method="post">
-            <!-- Username -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" name="username" class="form-control" placeholder="Tài khoản" required>
+                <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required>
             </div>
-
-            <!-- Email -->
+            
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                 </div>
-                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                <input type="email" name="email" class="form-control" placeholder="Địa chỉ email" required>
             </div>
-
-            <!-- Password -->
+            
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                 </div>
                 <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required>
             </div>
-
-            <!-- Confirm Password -->
+            
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
@@ -73,11 +50,14 @@
                 <input type="password" name="confirmPassword" class="form-control" placeholder="Xác nhận mật khẩu" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fa fa-user-plus"></i> Đăng ký
+            </button>
         </form>
 
         <p class="text-center mt-3">
-            Đã có tài khoản? <a href="login">Đăng nhập</a>
+            Đã có tài khoản? 
+            <a href="${pageContext.request.contextPath}/login">Đăng nhập ngay</a>
         </p>
     </div>
 </body>
